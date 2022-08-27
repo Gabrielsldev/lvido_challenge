@@ -1,5 +1,6 @@
 import requests
 import pandas as pd
+import json
 
 from datetime import datetime
 
@@ -29,5 +30,6 @@ def get_quote():
     quote_imab5 = df_imab5_data['numero_indice'][0][-1]
 
     api_return = {"quote":quote_imab5, "date":today}
+    api_return_json = json.dumps(api_return)
 
-    return api_return
+    return api_return_json
