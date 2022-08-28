@@ -16,7 +16,6 @@ def get_quote():
     }
 
     today = datetime.today().strftime('%d/%m/%Y')
-    # today = '26/08/2022'
 
     # URL for get request
     URL = f'https://www.anbima.com.br/pt_br/anbima/jsonima/acionar?dataInicio={today}&dataFim={today}'
