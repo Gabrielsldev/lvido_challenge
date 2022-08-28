@@ -15,9 +15,13 @@ The API will receive a GET request at `/api/v1/cota` and the output must be the 
 ]
 ```
 
-### Data source: [Anbima IMA-B 5](https://www.anbima.com.br/pt_br/informar/precos-e-indices/indices/ima.htm#Laminas)
+> Data source: [Anbima IMA-B 5](https://www.anbima.com.br/pt_br/informar/precos-e-indices/indices/ima.htm#Laminas)
 
 ---
 
 
- 
+## Instructions:
+- Clone the repository to the desired directory.
+- Simply run `sudo docker-compose up` and the application will start.
+- Access the API endpoint locally: [API endpoint](http://localhost:8000/api/v1/cota)
+  - `localhost:8000/api/v1/cota`
