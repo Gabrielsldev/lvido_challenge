@@ -15,8 +15,8 @@ def get_quote():
         "User-Agent": "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:104.0) Gecko/20100101 Firefox/104.0"
     }
 
-    # today = datetime.today().strftime('%d/%m/%Y')
-    today = '26/08/2022'
+    today = datetime.today().strftime('%d/%m/%Y')
+    # today = '26/08/2022'
 
     # URL for get request
     URL = f'https://www.anbima.com.br/pt_br/anbima/jsonima/acionar?dataInicio={today}&dataFim={today}'
@@ -24,10 +24,13 @@ def get_quote():
     get_req = requests.get(URL, headers = headers)
 
     imab5_data = get_req.json()['IMA-B 5']
-
     df_imab5_data = pd.json_normalize(imab5_data)
 
-    quote_imab5 = df_imab5_data['numero_indice'][0][-1]
+    # If it's not a working day, the API returns null
+    try:
+        quote_imab5 = df_imab5_data['numero_indice'][0][-1]
+    except:
+        quote_imab5 = None
 
     api_return = {"quote":quote_imab5, "date":today}
     api_return_json = json.dumps(api_return)
