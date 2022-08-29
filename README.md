@@ -31,3 +31,6 @@ The API will receive a GET request at `/api/v1/cota` and the output must be the 
 - The tests can be found at `quotes/tests.py`.
   - To run the tests, run `python tests.py` inside the `quotes` folder.
 ---
+
+## Notes:
+- The results of the IMA indexes are [released around 7pm](https://www.anbima.com.br/pt_br/informar/precos-e-indices/indices/ima.htm#Laminas). If the API makes a request and the results are not yet released, the GET request will return `null` for the `quote` parameter.

@@ -25,7 +25,7 @@ def get_quote():
     imab5_data = get_req.json()['IMA-B 5']
     df_imab5_data = pd.json_normalize(imab5_data)
 
-    # If it's not a working day, the API returns null
+    # Error handling: The results of the IMA indexes are released around 7pm. Sometimes the API call may return null.
     try:
         quote_imab5 = df_imab5_data['numero_indice'][0][-1]
     except:
