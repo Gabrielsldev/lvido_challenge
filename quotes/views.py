@@ -10,6 +10,7 @@ from quotes.utils.get_quotes import get_quote
 
 # Create your views here.
 
+# Class based view
 class Imab5View(TemplateView):
     template_name = "imab5_quote.html"
 
@@ -21,6 +22,7 @@ class Imab5View(TemplateView):
         return context
 
 
+# Function based view
 # def get_imab5_quote(request):
 
 #     if request.method == 'GET':
